@@ -21,7 +21,7 @@ namespace marg
         static void Main(string[] args)
         {
             ArgHandler argHandler = new ArgHandler(args);
-            if (argHandler.Handle())
+            if (!argHandler.Handle())
             {
                 Console.WriteLine("Failed to parse arguements!");
                 return;
