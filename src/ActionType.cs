@@ -1,4 +1,4 @@
-﻿// Marg programming language
+// Marg programming language
 // Copyright (C) 2026 Riley0122
 //
 // This program is free software: you can redistribute it and/or modify
@@ -16,12 +16,10 @@
 
 namespace marg
 {
-    class Program
+    enum ActionType
     {
-        static void Main(string[] args)
-        {
-            ArgHandler argHandler = new ArgHandler(args);
-            argHandler.Handle();
-        }
+        Compile,
+        Assemble,
+        Run
     }
 }

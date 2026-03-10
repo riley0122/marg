@@ -1,0 +1,79 @@
+// Marg programming language
+// Copyright (C) 2026 Riley0122
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+// 
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+namespace marg
+{
+    class ArgHandler(string[] args)
+    {
+        private string[] args = args;
+        private string InputFilePath = "";
+        private string OutputFilePath = "";
+        private List<ActionType> Actions = [];
+
+        public bool Handle()
+        {
+            if (this.args.Length < 1)
+            {
+                return false;
+            }
+
+            string actionString = this.args[0];
+            switch (actionString)
+            {
+                case "compile":
+                    this.Actions = [ActionType.Compile];
+                    break;
+
+                case "assemble":
+                    this.Actions = [ActionType.Assemble];
+                    break;
+
+                case "make":
+                    this.Actions = [ActionType.Compile, ActionType.Assemble];
+                    break;
+
+                case "run":
+                    this.Actions = [ActionType.Compile, ActionType.Assemble, ActionType.Run];
+                    break;
+
+                default:
+                    return false;
+            }
+
+            for (int i = 1; i < this.args.Length; i++)
+            {
+                Console.WriteLine(this.args[i]);
+            }
+        }
+
+        public ActionType GetNextAction()
+        {
+            ActionType first = this.Actions[0];
+            this.Actions.Remove(first);
+            return first;
+        }
+
+        public string GetInputFilePath()
+        {
+            return this.InputFilePath;
+        }
+
+        public string GetOutputFilePath()
+        {
+            return this.OutputFilePath;
+        }
+    }
+}
