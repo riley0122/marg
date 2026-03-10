@@ -50,6 +50,11 @@ namespace marg
                     break;
 
                 default:
+                    Console.WriteLine("Invalid action! These are your options:");
+                    Console.WriteLine("\t - compile");
+                    Console.WriteLine("\t - assemble");
+                    Console.WriteLine("\t - make");
+                    Console.WriteLine("\t - run");
                     return false;
             }
 
@@ -57,6 +62,8 @@ namespace marg
             {
                 Console.WriteLine(this.args[i]);
             }
+
+            return true;
         }
 
         public ActionType GetNextAction()
