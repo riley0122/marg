@@ -55,7 +55,7 @@ namespace marg
             return true;
         }
 
-        private bool ParseOption(string key, string value) {
+        private bool ParseOption(string option, string value) {
             switch (option)
             {
                 case "-o":
@@ -64,7 +64,7 @@ namespace marg
                     break;
 
                 default:
-                    Console.WriteLine("Invalid option " + this.args[i]);
+                    Console.WriteLine("Invalid option " + option);
                     return false;
             }
 
@@ -100,7 +100,7 @@ namespace marg
                 string option = this.args[i];
                 string value = this.args[i + 1];
 
-                if (ArgHandler.ParseOption(value, option)) return false;
+                if (this.ParseOption(value, option)) return false;
             }
 
             return true;
