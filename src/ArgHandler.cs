@@ -58,6 +58,14 @@ namespace marg
                     return false;
             }
 
+            if (this.args.Length < 2)
+            {
+                Console.WriteLine("No input file provided!");
+                return false;
+            }
+
+            this.InputFilePath = this.args[1];
+
             for (int i = 1; i < this.args.Length; i++)
             {
                 Console.WriteLine(this.args[i]);
