@@ -66,9 +66,28 @@ namespace marg
 
             this.InputFilePath = this.args[1];
 
-            for (int i = 1; i < this.args.Length; i++)
+            for (int i = 2; i < this.args.Length; i += 2)
             {
-                Console.WriteLine(this.args[i]);
+                if (this.args.Length < i + 2)
+                {
+                    Console.WriteLine("Option " + this.args[i] + " does not have a value.");
+                    return false;
+                }
+
+                string option = this.args[i];
+                string value = this.args[i + 1];
+
+                switch (option)
+                {
+                    case "-o":
+                    case "--output":
+                        this.OutputFilePath = value;
+                        break;
+
+                    default:
+                        Console.WriteLine("Invalid option " + this.args[i]);
+                        return false;
+                }
             }
 
             return true;
