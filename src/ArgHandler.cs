@@ -51,6 +51,24 @@ namespace marg
                     Console.WriteLine("\t - run");
                     return false;
             }
+
+            return true;
+        }
+
+        private bool ParseOption(string key, string value) {
+            switch (option)
+            {
+                case "-o":
+                case "--output":
+                    this.OutputFilePath = value;
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid option " + this.args[i]);
+                    return false;
+            }
+
+            return false;
         }
 
         public bool Handle()
@@ -82,17 +100,7 @@ namespace marg
                 string option = this.args[i];
                 string value = this.args[i + 1];
 
-                switch (option)
-                {
-                    case "-o":
-                    case "--output":
-                        this.OutputFilePath = value;
-                        break;
-
-                    default:
-                        Console.WriteLine("Invalid option " + this.args[i]);
-                        return false;
-                }
+                if (ArgHandler.ParseOption(value, option)) return false;
             }
 
             return true;
