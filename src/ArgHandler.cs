@@ -100,7 +100,7 @@ namespace marg
                 string option = this.args[i];
                 string value = this.args[i + 1];
 
-                if (this.ParseOption(value, option)) return false;
+                if (this.ParseOption(option, value)) return false;
             }
 
             return true;
