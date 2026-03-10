@@ -27,10 +27,10 @@ namespace marg
         {
             return new Dictionary<string, string>() 
             {
-                Author = this.Author,
-                Project = this.Project,
-                Version = this.Version,
-                License = this.License      
+                {"Author", this.Author},
+                {"Project", this.Project},
+                {"Version", this.Version},
+                {"License", this.License}    
             };
         }
     }
