@@ -106,6 +106,11 @@ namespace marg
             return true;
         }
 
+        public bool HasNextAction()
+        {
+            return this.Actions.Count != 0;
+        }
+
         public ActionType GetNextAction()
         {
             ActionType first = this.Actions[0];

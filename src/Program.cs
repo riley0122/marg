@@ -22,6 +22,13 @@ namespace marg
         {
             ArgHandler argHandler = new ArgHandler(args);
             if (!argHandler.Handle()) return;
+
+            while (argHandler.HasNextAction())
+            {
+                ActionType action = argHandler.GetNextAction();
+
+                Console.WriteLine(action);
+            }
         }
     }
 }
