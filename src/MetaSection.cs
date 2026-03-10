@@ -16,7 +16,7 @@
 
 namespace marg
 {
-    class MetaSection
+    class MetaSection : Section
     {
         private string Author;
         private string Project;
