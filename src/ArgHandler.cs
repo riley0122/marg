@@ -23,14 +23,8 @@ namespace marg
         private string OutputFilePath = "";
         private List<ActionType> Actions = [];
 
-        public bool Handle()
+        private bool SetActionType(string actionString)
         {
-            if (this.args.Length < 1)
-            {
-                return false;
-            }
-
-            string actionString = this.args[0];
             switch (actionString)
             {
                 case "compile":
@@ -57,6 +51,17 @@ namespace marg
                     Console.WriteLine("\t - run");
                     return false;
             }
+        }
+
+        public bool Handle()
+        {
+            if (this.args.Length < 1)
+            {
+                return false;
+            }
+
+            string actionString = this.args[0];
+            if (!this.SetActionType(actionString)) return false;
 
             if (this.args.Length < 2)
             {
