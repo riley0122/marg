@@ -20,6 +20,7 @@ namespace marg
     {
         private string[] inputFileContent;
         private int index;
+        private List<Token> Tokens = [];
         
         public Tokenizer(string inputFilePath)
         {
@@ -39,7 +40,12 @@ namespace marg
 
         public void tokenize()
         {
-            // TODO: Parse
+            while (this.HasMoreLines())
+            {
+                Token token = new(this.GetNextLine());
+                token.Evaluate();
+                this.Tokens.Append(token);
+            }
         }
     }
 }
