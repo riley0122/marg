@@ -22,14 +22,14 @@ namespace marg
         private object value;
         private AccessModifier access; 
 
-        public GetValue()
+        public object GetValue()
         {
-            return this.value();
+            return this.value;
         }
 
-        public SetValue()
+        public void SetValue(object newValue)
         {
-            return this.value();
+            this.value = newValue;
         }
     }
 }

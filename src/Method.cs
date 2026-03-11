@@ -19,12 +19,12 @@ namespace marg
     class Method
     {
         private string Name;
-        private List<string> Params;
-        private CodeBlock Body;
+        private List<string> Params = [];
+        // private CodeBlock Body;
 
-        public object Execute()
-        {
+        // public object Execute()
+        // {
             // TODO
-        }
+        // }
     }
 }
