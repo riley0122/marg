@@ -25,7 +25,7 @@ namespace marg
             this.inputFileContent = File.ReadAllLines(inputFilePath);
         }
 
-        public void parse()
+        public void tokenize()
         {
             // TODO: Parse
         }
