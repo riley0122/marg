@@ -1,4 +1,4 @@
-﻿// Marg programming language
+// Marg programming language
 // Copyright (C) 2026 Riley0122
 //
 // This program is free software: you can redistribute it and/or modify
@@ -16,21 +16,13 @@
 
 namespace marg
 {
-    class Program
+    class Token
     {
-        static void Main(string[] args)
+        private string TextContent;
+        
+        public Token(string TextContent)
         {
-            ArgHandler argHandler = new ArgHandler(args);
-            if (!argHandler.Handle()) return;
-
-            while (argHandler.HasNextAction())
-            {
-                ActionType action = argHandler.GetNextAction();
-            }
-
-            // TODO: Use the action from the arghandler
-            Tokenizer tokenizer = new(argHandler.GetInputFilePath());
-            tokenizer.tokenize();
+            this.TextContent = TextContent;
         }
     }
 }

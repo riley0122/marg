@@ -19,10 +19,22 @@ namespace marg
     class Tokenizer
     {
         private string[] inputFileContent;
+        private int index;
         
         public Tokenizer(string inputFilePath)
         {
             this.inputFileContent = File.ReadAllLines(inputFilePath);
+        }
+
+        private bool HasMoreLines()
+        {
+            return this.index < this.inputFileContent.Length;
+        }
+
+        private string GetNextLine()
+        {
+            this.index += 1;
+            return inputFileContent[this.index - 1];
         }
 
         public void tokenize()
