@@ -22,6 +22,7 @@ namespace marg
         Identifier,
         Literal,
         Operator,
-        Seperator
+        Seperator,
+        None
     }
 }

@@ -20,6 +20,7 @@ namespace marg
     {
         private string TextContent;
         private int Index = 0;
+        private TokenType type = TokenType.None;
 
         public Token(string TextContent)
         {
@@ -51,6 +52,11 @@ namespace marg
             }
 
             Console.Write("\n");
+        }
+
+        public TokenType GetTokenType()
+        {
+            return this.type;
         }
     }
 }
