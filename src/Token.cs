@@ -19,17 +19,29 @@ namespace marg
     class Token
     {
         private string TextContent;
+        private int Index = 0;
 
         public Token(string TextContent)
         {
             this.TextContent = TextContent;
         }
 
+        private bool HasNextToken()
+        {
+            return this.Index < this.TextContent.Length;
+        }
+
+        private char GetNextToken()
+        {
+            this.Index += 1;
+            return this.TextContent[this.Index - 1];
+        }
+
         public void Evaluate()
         {
-            foreach (char c in this.TextContent)
+            while (this.HasNextToken())
             {
-                Console.Write(c);
+                this.GetNextToken();
             }
         }
     }
