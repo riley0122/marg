@@ -44,6 +44,7 @@ namespace marg
             {
                 foreach (string tokenText in this.GetNextLine().Split(" "))
                 {
+                    if (tokenText.StartsWith("--")) break; // Coments
                     Token token = new(tokenText);
                     token.Evaluate();
                     this.Tokens.Append(token);

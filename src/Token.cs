@@ -46,8 +46,6 @@ namespace marg
             {
                 char c = this.GetNextToken();
                 
-                if (c == '-' && this.GetNextToken() == '-') return;
-
                 Console.Write(c);
             }
 
