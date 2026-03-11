@@ -39,10 +39,18 @@ namespace marg
 
         public void Evaluate()
         {
+            if (this.TextContent.Trim() == "") return;
+
             while (this.HasNextToken())
             {
-                this.GetNextToken();
+                char c = this.GetNextToken();
+                
+                if (c == '-' && this.GetNextToken() == '-') return;
+
+                Console.Write(c);
             }
+
+            Console.Write("\n");
         }
     }
 }
