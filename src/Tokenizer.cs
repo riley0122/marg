@@ -42,9 +42,12 @@ namespace marg
         {
             while (this.HasMoreLines())
             {
-                Token token = new(this.GetNextLine());
-                token.Evaluate();
-                this.Tokens.Append(token);
+                foreach (string tokenText in this.GetNextLine().Split(" "))
+                {
+                    Token token = new(tokenText);
+                    token.Evaluate();
+                    this.Tokens.Append(token);
+                }
             }
         }
     }
