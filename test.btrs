@@ -1,0 +1,25 @@
+-- Butters example source file to test compilation
+-- Source: https://github.com/riley0122/butters/blob/main/guides/examples/example.btrs
+
+#section META
+*author LucasAmmer
+*project example
+*version 1.0.0
+*license MIT
+
+-- No imports used
+
+#section DEFINE
+int first 0
+int second 1
+int count 0
+int reps 10
+int nth 0
+
+#section CODE
+while _count < _reps
+$ out first
+$ cvar nth / _first + _second
+$ cvar first / _second
+$ cvar second / _nth
+$ cvar count / _count + 1
